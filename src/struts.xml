@@ -12,13 +12,21 @@
             <result>hello.jsp</result>
         </action>
 
-        <action name="Login" class="net.feminaexlux.struts2.minimal.actions.Login">
-            <result name="input">login.jsp</result>
-            <result name="success" type="redirectAction">
-                <param name="actionName">Hello</param>
-                <param name="parse">false</param>
-                <param name="anchor">SUMMARY</param>
-            </result>
+    </package>
+
+    <package name="default" namespace="/" extends="json-default">
+        <action name="PostHighScore" class="net.feminaexlux.struts2.minimal.actions.PostHighScore">
+            <result type="json" />
         </action>
+
+        <action name="Login" class="net.feminaexlux.struts2.minimal.actions.Login">
+            <result type="json" />
+        </action>
+
+        <action name="HighScore" class="net.feminaexlux.struts2.minimal.actions.HighScore"
+                method="execute">
+            <result type="json" />
+        </action>
+
     </package>
 </struts>
