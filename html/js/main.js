@@ -89,6 +89,16 @@ arm_right = function(amount, speed) {
   });
 };
 
+updatePlayerScore = function(playerScore){
+	$("#playerScore").text('score'+ playerScore);
+}
+
+postPlayerScore = function(score){
+$.ajax({
+  url: '/PostHighScore.action?userName='+"lucas"+'&score='+score,
+  type: "POST"
+});
+}
 arm_up = function(amount, speed) {
   return arm.animate({
     top: "-=" + amount,
