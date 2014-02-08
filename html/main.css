@@ -31,3 +31,10 @@
     top: 0;
     background: yellow;
 }
+
+#arm .finger {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    background: red;
+}
