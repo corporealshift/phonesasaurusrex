@@ -1,4 +1,4 @@
-package net.feminaexlux.struts2.minimal;
+package net.feminaexlux.struts2.minimal.actions;
 
 import org.apache.struts2.dispatcher.DefaultActionSupport;
 

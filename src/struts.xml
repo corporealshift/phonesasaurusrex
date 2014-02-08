@@ -8,11 +8,11 @@
     <constant name="struts.devMode" value="true"/>
 
     <package name="minimal" extends="struts-default">
-        <action name="Hello" class="net.feminaexlux.struts2.minimal.Hello">
+        <action name="Hello" class="net.feminaexlux.struts2.minimal.actions.Hello">
             <result>hello.jsp</result>
         </action>
 
-        <action name="Login" class="net.feminaexlux.struts2.minimal.Login">
+        <action name="Login" class="net.feminaexlux.struts2.minimal.actions.Login">
             <result name="input">login.jsp</result>
             <result name="success" type="redirectAction">
                 <param name="actionName">Hello</param>
