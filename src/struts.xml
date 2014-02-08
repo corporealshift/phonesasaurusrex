@@ -21,4 +21,10 @@
             </result>
         </action>
     </package>
+
+    <package name="default" namespace="/" extends="json-default">
+        <action name="PostHighScore" class="net.feminaexlux.struts2.minimal.actions.PostHighScore">
+            <result type="json" />
+        </action>
+    </package>
 </struts>
