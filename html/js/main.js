@@ -90,7 +90,6 @@ arm_right = function(amount, speed) {
   });
 };
 
-<<<<<<< HEAD
 updatePlayerScore = function(playerScore){
 	$("#playerScore").text('score'+ playerScore);
 }
