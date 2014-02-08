@@ -8,8 +8,6 @@ $ ->
 
     arm = $ '#arm'
     number = $ '.1'
-    # Seems to be a bug in jQuery that we need this
-    arm.css 'left', 0
 
     $(document).on 'keydown', (e)->
         e.preventDefault()

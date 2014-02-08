@@ -1,23 +1,30 @@
+body {
+    background: url('img/Phoneasaurusrex.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .wrapper {
-    width: 450px;
+    width: 295px;
     height: 800px;
     margin: 0 auto;
+    top: 545px;
+    position: relative;
 }
 
 .wrapper .number {
-    width: 144px;
-    height: 144px;
+    width: 96px;
+    height: 79px;
     background: blue;
     margin: 1px;
     float: left;
     font-size: 50px;
-    line-height: 150px;
+    line-height: 79px;
     text-align: center;
     font-family: monospace;
 }
 
 .wrapper .number:last-child {
-    margin-left: 147px;
+    margin-left: 99px;
 }
 
 .wrapper .number:hover {
@@ -27,8 +34,9 @@
 #arm {
     width: 100px;
     height: 1600px;
+    top: 575px;
+    left: 450px;
     position: absolute;
-    top: 0;
     background: yellow;
 }
 

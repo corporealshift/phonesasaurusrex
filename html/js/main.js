@@ -8,7 +8,6 @@ number = null;
 $(function() {
   arm = $('#arm');
   number = $('.1');
-  arm.css('left', 0);
   return $(document).on('keydown', function(e) {
     e.preventDefault();
     console.log(e.keyCode);
