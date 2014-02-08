@@ -51,7 +51,14 @@ arm_right = function() {
 };
 
 updatePlayerScore = function(playerScore){
-	$("#playerScore").text('score'+ 100000);
+	$("#playerScore").text('score'+ playerScore);
+}
+
+postPlayerScore = function(score){
+$.ajax({
+  url: '/PostHighScore.action?userName='+"lucas"+'&score='+score,
+  type: "POST"
+});
 }
 
 arm_up = function() {
