@@ -31,3 +31,7 @@
     top: 0;
     background: yellow;
 }
+
+#playerScore{
+	z-index:-1;
+}

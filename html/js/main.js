@@ -50,6 +50,10 @@ arm_right = function() {
   });
 };
 
+updatePlayerScore = function(playerScore){
+	$("#playerScore").text('score'+ 100000);
+}
+
 arm_up = function() {
   var arm;
   arm = $('#arm');
