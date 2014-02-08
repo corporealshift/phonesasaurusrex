@@ -1,0 +1,1 @@
+game = document.querySelectorAll "#game"

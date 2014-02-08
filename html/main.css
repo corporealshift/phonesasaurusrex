@@ -1,0 +1,10 @@
+.wrapper {
+    width: 710px;
+    margin: 0 auto;
+}
+
+#game {
+    border: 5px solid green;
+    width: 700px;
+    height: 400px;
+}
