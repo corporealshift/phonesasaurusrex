@@ -3,6 +3,20 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.goal {
+    margin-top: 280px;
+
+}
+
+.phonenums {
+    color: white;
+    margin-left: 644px;
+    position: relative;
+    font-size: 25px;
+    font-family: monospace;
+}
+
 .wrapper {
     width: 295px;
     height: 800px;
@@ -14,7 +28,6 @@ body {
 .wrapper .number {
     width: 96px;
     height: 79px;
-    background: blue;
     margin: 1px;
     float: left;
     font-size: 50px;
@@ -32,12 +45,14 @@ body {
 }
 
 #arm {
-    width: 100px;
+    background: url('img/Arm.png');
+    width: 150px;
     height: 1600px;
     top: 575px;
     left: 450px;
     position: absolute;
-    background: yellow;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #playerScore{
 	z-index:-1;
@@ -46,5 +61,4 @@ body {
     width: 50px;
     height: 50px;
     margin: 0 auto;
-    background: red;
 }

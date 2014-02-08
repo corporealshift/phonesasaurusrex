@@ -1,17 +1,22 @@
 arm = null
 number = null
+target_number = "6985553454"
+display = ''
+index = 0
+your_number = null
 $ ->
     
-    # window.setInterval ->
-    #     move_randomly()
-    # , 500
+    window.setInterval ->
+        move_randomly()
+    , 500
 
     arm = $ '#arm'
-    number = $ '.1'
+    number = $ '.6'
+    your_number = $ '.yours'
 
     $(document).on 'keydown', (e)->
         e.preventDefault()
-        console.log e.keyCode
+        # console.log e.keyCode
         switch e.keyCode
             when 37
                 console.log 'left'
@@ -42,7 +47,18 @@ move_randomly = ->
             arm_right(random_move_amount(), random_speed())
 
 check_for_valid_number = ->
-    console.log overlaps(arm, number)
+    console.log(overlaps(arm, number))
+    if overlaps(arm, number)
+        console.log("char: ", target_number.charAt(index))
+        display += target_number.charAt(index)
+        index++
+        number_index = target_number.charAt(index)
+        
+        if (target_number.charAt(index).length < 1)
+            number_index = "4"
+
+        number = $ '.' + number_index
+        your_number.text display
 
 random_move_amount = ->
     100 + Math.random() * 50
@@ -88,12 +104,19 @@ arm_down = (amount, speed)->
         duration: speed
 
 overlaps = ( a, b ) ->
-    pos1 = getPositions( a )
-    pos1[1][1] = 50
-    pos2 = getPositions( b )
-    console.log pos1, pos2
-    return comparePositions( pos1[0], pos2[0] ) && 
-           comparePositions( pos1[1], pos2[1] );
+    rect1 = a.get()[0].getBoundingClientRect()
+    rect2 = b.get()[0].getBoundingClientRect()
+    rect1.bottom = rect1.height + 50
+    !(rect1.right < rect2.left || 
+        rect1.left > rect2.right || 
+        rect1.bottom < rect2.top || 
+        rect1.top > rect2.bottom)
+    # pos1 = getPositions( a )
+    # pos1[1][1] = 50
+    # pos2 = getPositions( b )
+    # console.log pos1, pos2
+    # return comparePositions( pos1[0], pos2[0] ) && 
+    #        comparePositions( pos1[1], pos2[1] );
 
 getPositions = ( elem ) ->
     pos = $( elem ).position();
@@ -105,6 +128,6 @@ getPositions = ( elem ) ->
 comparePositions = ( p1, p2 ) ->
     r1 = if p1[0] < p2[0] then p1 else p2
     r2 = if p1[0] < p2[0] then p2 else p1
-    return r1[1] > r2[0] || r1[0] is r2[0];
+    return r1[1] > r2[0] or r1[0] is r2[0];
 
 
