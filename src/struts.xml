@@ -25,8 +25,7 @@
 
         <action name="HighScore" class="net.feminaexlux.struts2.minimal.actions.HighScore"
                 method="execute">
-            <result name="success">/highscore.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result type="json" />
         </action>
 
     </package>

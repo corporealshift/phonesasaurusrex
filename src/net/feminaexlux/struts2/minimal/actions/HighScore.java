@@ -6,25 +6,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class HighScore extends DefaultActionSupport {
 
-	private String user;
-	private String name;
-	private Integer score;
-
-	public Integer getScore() {
-		return score;
-	}
-
-	public void setScore(Integer score) {
-		this.score = score;
-	}
+    private List<Map<String, String>> highScores;
+    private String result;
 
 	public String execute() {
 		String ret = ERROR;
 		Connection conn = null;
-
+        highScores = new ArrayList<Map<String, String>>();
 		try {
 			String URL = "jdbc:mysql://localhost:3306/phoneasaurusrex";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -34,14 +29,18 @@ public class HighScore extends DefaultActionSupport {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				name = rs.getString(1);
-				score = rs.getInt(2);
+                Map<String, String> user = new HashMap<String, String>();
+
+                user.put("userName", rs.getString(1));
+                user.put("score", "" + rs.getInt(2));
+
+                highScores.add(user);
 			}
-				ret = SUCCESS;
+				result = "success";
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			ret = ERROR;
+			result = "failure";
 		} finally {
 			if (conn != null) {
 				try {
@@ -50,22 +49,19 @@ public class HighScore extends DefaultActionSupport {
 				}
 			}
 		}
-		return ret;
+
+
+
+
+
+		return SUCCESS;
 	}
 
-	public String getUser() {
-		return user;
-	}
+    public List<Map<String, String>> getHighScores() {
+        return highScores;
+    }
 
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getResult() {
+        return result;
+    }
 }
