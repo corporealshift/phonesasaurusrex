@@ -4,4 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
        default-autowire="autodetect">
     <bean id="UserDao" class="net.feminaexlux.struts2.minimal.dao.UserDao"/>
+
+    <bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/phoneasaurus"/>
+        <property name="resourceRef" value="false"/>
+        <property name="defaultObject" value="dummy"></property>
+    </bean>
 </beans>
